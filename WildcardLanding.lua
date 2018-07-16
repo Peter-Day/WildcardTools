@@ -25,7 +25,6 @@ local streamers = {
 	"Driney_"
 }
 
-
 local function PopulateTab(container)
 	container:SetLayout("Flow")
 	container.content.width = container.content:GetWidth()
