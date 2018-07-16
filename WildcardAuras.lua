@@ -67,7 +67,7 @@ local function RefreshAll(cat)
 				if AurasForRefresh[uid] then
 					AurasForRefresh[uid] = nil
 					local sendmessage = strjoin(SEP, UnitGUID("player"), "Y", aura.uid, aura.version, aura.wago)
-					SendAddonMessage("TELSTOOLS", sendmessage, "RAID")
+					SendAddonMessage("WCAURA", sendmessage, "RAID")
 				end
 			end, x)
 			x=x+0.1
@@ -280,7 +280,7 @@ local function PopulateTab1(container)
 			refreshButton:SetCallback("OnClick",function(widget, callback, button)
 				if button == "LeftButton" then
 					local sendmessage = strjoin(SEP, UnitGUID("player"), "Y", aura.uid, aura.version, aura.wago)
-					SendAddonMessage("TELSTOOLS", sendmessage, "RAID")
+					SendAddonMessage("WCAURA", sendmessage, "RAID")
 				elseif button == "RightButton" then
 					RefreshAll(aura.category)
 				end
@@ -511,7 +511,7 @@ end
 --WidgetsReference
 --Handles messages from other clients to request and complete syncs
 function WA:MessageHandler(event, prefix, message, channel, fullName, name)
-	if prefix == "TELSTOOLS" then
+	if prefix == "WCAURA" then
 		local LatestVerSeen = WCTSaved.LatestVerSeen
 		local unitguid, request, uid, version, wago = strsplit(SEP,message)
 		request = request == "Y"
@@ -665,7 +665,7 @@ function WA:MessageHandler(event, prefix, message, channel, fullName, name)
 		--send back requested data
 		if request and Data[uid] and unitguid ~= UnitGUID("player") then
 			local sendmessage = strjoin(SEP, UnitGUID("player"), "N", uid, Data[uid].version, Data[uid].wago)
-			SendAddonMessage("TELSTOOLS", sendmessage, channel)
+			SendAddonMessage("WCAURA", sendmessage, channel)
 		end
 	end
 end
@@ -1340,7 +1340,7 @@ end
 function WA:OnEnable()
     -- Called when the addon is enabled
 	WA:UpdateWAData()
-	RegisterAddonMessagePrefix("TELSTOOLS")
+	RegisterAddonMessagePrefix("WCAURA")
 	WA:RegisterEvent("CHAT_MSG_ADDON", "MessageHandler")
 	WA:RegisterEvent("GROUP_ROSTER_UPDATE", "RosterUpdate")
 	WA:RegisterEvent("UNIT_CONNECTION", "RosterUpdate")

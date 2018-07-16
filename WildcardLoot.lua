@@ -613,7 +613,7 @@ local function UpdateEncounterLoot(encounter,item)
 end
 
 function PL:MessageHandler(event, prefix, message, channel, fullName, name)
-	if prefix == "TELSLOOT" and IsInRaid() then
+	if prefix == "WCLOOT" and IsInRaid() then
 		local unitguid, enc, icon, tradeable, itemlink = strsplit(SEP,message)
 		enc = tonumber(enc)
 		icon = tonumber(icon)
@@ -790,7 +790,7 @@ end
 
 function PL:OnEnable()
     -- Called when the addon is enabled
-	RegisterAddonMessagePrefix("TELSLOOT")
+	RegisterAddonMessagePrefix("WCLOOT")
 	PL:RegisterEvent("CHAT_MSG_ADDON", "MessageHandler")
 	PL:RegisterEvent("ENCOUNTER_END", "EncounterEnd")
 	
@@ -875,7 +875,7 @@ function PL:SenderLootOpened(event, ...)
 		--print("no loot") --send no loot found message
 		local guid = UnitGUID('player')
 		local sendmessage = strjoin("^",guid,tostring(lootedBoss))
-		SendAddonMessage("TELSLOOT", sendmessage, "RAID")
+		SendAddonMessage("WCLOOT", sendmessage, "RAID")
 	end
 	looting = true
 	openedTime = GetTime()
@@ -985,14 +985,14 @@ function PL:SenderOnUpdate(elapsed)
                 local encounter = itemEncounters[swapBack]
                 local icon = (GetContainerItemInfo(0,1)) or 347737
                 local sendmessage = strjoin("^",guid,encounter,icon,"true",link)
-                SendAddonMessage("TELSLOOT", sendmessage, "RAID")
+                SendAddonMessage("WCLOOT", sendmessage, "RAID")
                 --print(sendmessage)
             else
                 local guid = UnitGUID("player")
                 local encounter = itemEncounters[swapBack]
                 local icon = (GetContainerItemInfo(0,1)) or 347737
                 local sendmessage = strjoin("^",guid,tostring(encounter),tostring(icon),"false",link)
-                SendAddonMessage("TELSLOOT", sendmessage, "RAID")
+                SendAddonMessage("WCLOOT", sendmessage, "RAID")
                 --print(sendmessage)
             end
             PickupContainerItem(0,1)
