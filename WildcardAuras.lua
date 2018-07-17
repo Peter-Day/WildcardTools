@@ -21,6 +21,7 @@ local SEP = "^"
 
 --LUA API
 local tinsert = table.insert
+local SendAddonMessage, RegisterAddonMessagePrefix = C_ChatInfo.SendAddonMessage, C_ChatInfo.RegisterAddonMessagePrefix
 
 local classColor = {
 	WARRIOR = {0.78, 0.61, 0.43},

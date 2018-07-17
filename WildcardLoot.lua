@@ -81,6 +81,7 @@ local lootInstances = {
 
 --LUA API
 local tinsert, tremove = table.insert, table.remove
+local SendAddonMessage, RegisterAddonMessagePrefix = C_ChatInfo.SendAddonMessage, C_ChatInfo.RegisterAddonMessagePrefix
 local mathmin = math.min
 
 --[[
