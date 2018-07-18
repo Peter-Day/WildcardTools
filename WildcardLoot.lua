@@ -860,7 +860,7 @@ function PL:SenderLootOpened(event, ...)
 				local encounter = lootSources[id]
 				lootedBoss = encounter
 				if GetLootSlotType(i) == 1 then
-					local quality = select(4,GetLootSlotInfo(i))
+					local quality = select(5,GetLootSlotInfo(i))
 					local itemID = select(2,strsplit(":",GetLootSlotLink(i)))
 					--print("ItemID: "..itemID)
 					--say loot is found if epic or better item is found that is not on blacklist and is not a quest item
