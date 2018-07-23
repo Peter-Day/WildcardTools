@@ -675,7 +675,9 @@ end
 --update wa data when wa options closed
 local function WAOptionScript()
 	if WeakAuras.OptionsFrame() then
+		local script = WeakAuras.OptionsFrame():GetScript("OnHide")
 		WeakAuras.OptionsFrame():SetScript("OnHide",function()
+			script(self)
 			WA:UpdateWAData()
 		end)
 	end
