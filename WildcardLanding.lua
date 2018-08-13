@@ -13,22 +13,26 @@ local thanks = {
 	"Nnogga",
 	"Mortytide",
 	"Newmie",
+	"Opi",
 	"& Others"
 }
 
 local streamers = {
-	"TMSean",
-	"Utility",
 	"lumi_tv",
+	"TMSean",
+	"Driney_",
 	"ikkuza",
-	"keilosh",
-	"Driney_"
+	"Utility",
+	"Eyeseetv",
+	"furi321"
 }
-
 
 local function PopulateTab(container)
 	container:SetLayout("Flow")
-	container.content.width = container.content:GetWidth()
+	
+	--fix centering issues. don't try to understand.
+	container.content.width = 524--container.content:GetWidth()
+	--print(container.content.width,container.content:GetWidth())
 	
 	local WildcardIcon = AceGUI:Create("IconNoHighlight")
 	WildcardIcon:SetFullWidth(true)
@@ -89,7 +93,6 @@ local function PopulateTab(container)
 	space:SetFullWidth(true)
 	space:SetJustifyH("CENTER")
 	space:SetText(" ")
-	space:SetFont((space.label:GetFont()),72)
 	container:AddChild(space)
 	
 	local ContactLabel = AceGUI:Create("InteractiveLabel")

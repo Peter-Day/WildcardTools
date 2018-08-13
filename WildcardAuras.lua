@@ -170,9 +170,8 @@ function WA:UpdateWAData()
 			--cleanup weakauras save info
 			WACache[aura.TelUID] = WACache[aura.TelUID] or {}
 			aura.version = nil
-			if aura.url then
+			if aura.url and not aura.TelURL then
 				aura.TelURL = TrimWago(aura.url)
-				aura.url = nil
 			end
 			if Data[aura.TelUID] then
 				if aura.TelVer > Data[aura.TelUID].version then
@@ -855,7 +854,7 @@ function WA:Options(container)
 	
 	AuraMetaShowAllCheck = AceGUI:Create("CheckBox")
 	AuraMetaShowAllCheck:SetRelativeWidth(0.22)
-	AuraMetaShowAllCheck:SetLabel("Show Untracked")
+	AuraMetaShowAllCheck:SetLabel("Show All")
 	AuraMetaShowAllCheck:SetCallback("OnValueChanged",function(widget,callback,value)
 		showUntracked = value
 		updateAuraDropdown(AuraMetaSelect)

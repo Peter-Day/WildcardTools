@@ -14,7 +14,7 @@ _G[AddonName] = WildcardTools
 local SEP = "^"
 local lastTab = 1
 local tabData = {}
-local VER = "1.0.1"
+local VER = "1.1.0"
 local pos
 
 SLASH_WILDCARDTOOLS1 = "/wct"
@@ -93,8 +93,10 @@ function WildcardTools.ConfirmationBox(message, yesfunc, yesargs, nofunc, noargs
 		end)
 		frame:AddChild(no)
 		frame.frame:Raise()
-		confirmframe = true
+		confirmframe = frame
 		return frame
+	else
+		confirmframe.frame:Raise()
 	end
 end
 
@@ -158,13 +160,7 @@ function WildcardTools:Populate_MainFrame(tab)
 	-- Register callback
 	MainTab:SetCallback("OnGroupSelected", SelectGroup)
 	-- Set initial Tab (this will fire the OnGroupSelected callback)
-	if tab and type(tab) == "number" and tab > 0 and tab <= #tabData then
-		MainTab:SelectTab(tabData[tab].value)
-	elseif tab and type(tab) == "string" then
-		MainTab:SelectTab(tab)
-	else
-		MainTab:SelectTab(tabData[lastTab].value)
-	end
+	-------
 	
 	-- add to the frame container
 	WildcardTools_MainFrame:AddChild(MainTab)

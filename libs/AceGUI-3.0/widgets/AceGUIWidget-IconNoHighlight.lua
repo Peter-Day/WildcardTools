@@ -123,6 +123,7 @@ local function Constructor()
 	local widget = {
 		label = label,
 		image = image,
+		highlight = highlight,
 		frame = frame,
 		type  = Type
 	}
