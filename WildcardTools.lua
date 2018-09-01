@@ -14,7 +14,7 @@ _G[AddonName] = WildcardTools
 local SEP = "^"
 local lastTab = 1
 local tabData = {}
-local VER = "1.1.0"
+local VER = "1.1.1"
 local pos
 
 SLASH_WILDCARDTOOLS1 = "/wct"
