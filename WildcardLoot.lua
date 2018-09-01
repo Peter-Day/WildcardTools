@@ -83,6 +83,7 @@ local interestText = {
 
 --needs updating for each new raid release
 local TrackedEncounters = {
+	--Antorus, the Burning Throne
 	[2076] = {icon=1711328, instance="Antorus"},--gorothi
 	[2074] = {icon=1711330, instance="Antorus"},--hounds
 	[2070] = {icon=1711331, instance="Antorus"},--high command
@@ -94,9 +95,19 @@ local TrackedEncounters = {
 	[2073] = {icon=1711332, instance="Antorus"},--coven
 	[2063] = {icon=1711325, instance="Antorus"},--aggramar
 	[2092] = {icon=1711335, instance="Antorus"},--argus
+	--Uldir
+	[2144] = {icon=2032226, instance="Uldir"},--taloc
+	[2141] = {icon=2032224, instance="Uldir"},--mother
+	[2128] = {icon=2032222, instance="Uldir"},--fetid devourer
+	[2136] = {icon=2032227, instance="Uldir"},--zek'voz
+	[2134] = {icon=2032221, instance="Uldir"},--vectis
+	[2145] = {icon=2032228, instance="Uldir"},--zul
+	[2135] = {icon=2032225, instance="Uldir"},--mythrax
+	[2122] = {icon=2032223, instance="Uldir"},--g'huun
 }
 
 local lootSources = {
+	--Antorus, the Burning Throne
     [122450]=2076, --gorothi
     [122135]=2074, --hounds
     [122367]=2070, --high command
@@ -108,10 +119,20 @@ local lootSources = {
     [122467]=2073, --coven
     [121975]=2063, --aggramar
     [277355]=2092, --argus
+	--Uldir
+	[137119]=2144, --taloc
+    [140853]=2141, --mother --THIS WILL NEED CHANGING FOR HER LOOT CHEST
+    [133298]=2128, --fetid devourer
+    [134445]=2136, --zek'voz
+    [134442]=2134, --vectis
+    [138967]=2145, --zul
+    [136383]=2135, --mythrax
+    [132998]=2122, --g'huun
 }
 
 local lootInstances = {
 	"Antorus",
+	"Uldir"
 }
 
 --LUA API
