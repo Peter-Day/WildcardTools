@@ -475,6 +475,8 @@ local function PopulateTab1(container)
 			["new"] = true,
 		}
 	end
+	
+	scrollFrame:DoLayout()
 end
 
 --updates with joining/leaving raid

@@ -121,12 +121,12 @@ local lootSources = {
     [277355]=2092, --argus
 	--Uldir
 	[137119]=2144, --taloc
-    [140853]=2141, --mother --THIS WILL NEED CHANGING FOR HER LOOT CHEST
+    [291079]=2141, --mother
     [133298]=2128, --fetid devourer
     [134445]=2136, --zek'voz
     [134442]=2134, --vectis
     [138967]=2145, --zul
-    [136383]=2135, --mythrax
+    [134546]=2135, --mythrax
     [132998]=2122, --g'huun
 }
 
@@ -1215,7 +1215,7 @@ local function PopulateTabLC(container)
 end
 
 function PL:EncounterEnd(event, encounterID, encounterName, difficultyID, groupSize, success)
-	if success == 1 and IsInRaid() and (difficultyID == 14 or difficultyID == 15 or difficultyID == 16) and TrackedEncounters[encounterID] and WCTSaved.Options.TrackedInstances[TrackedEncounters[encounterID].instance] and (GetLootMethod()) == "personalloot" then
+	if success == 1 and IsInRaid() and (difficultyID == 14 or difficultyID == 15 or difficultyID == 16) and TrackedEncounters[encounterID] and WCTSaved.Options.TrackedInstances[TrackedEncounters[encounterID].instance] then
 		local guild = false
 		if UnitIsInMyGuild("raid1") and (InGuildParty()) then
 			guild = GetGuildInfo("player")
@@ -2001,6 +2001,7 @@ local itemLinks, itemEncounters, pendingSwaps = {}, {}, {}
 
 local itemBlacklist = {
     --[0] = true, 
+	[162461] = true,
 }
 
 local isQuestItem = function(i)
