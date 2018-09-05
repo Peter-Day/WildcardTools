@@ -1966,6 +1966,12 @@ function PL:OnInitialize()
 	WCTSaved.Options.LootCouncilGuildRank = WCTSaved.Options.LootCouncilGuildRank or 1
 	WCTSaved.Options.LootCouncil = WCTSaved.Options.LootCouncil or {}
 	WCTSaved.Encounters = WCTSaved.Encounters or {}
+	
+	for _,instance in ipairs(lootInstances) do
+		if WCTSaved.Options.TrackedInstances[instance] == nil then
+			WCTSaved.Options.TrackedInstances[instance] = true
+		end
+	end
 end
 
 function PL:OnEnable()
