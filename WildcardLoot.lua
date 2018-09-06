@@ -1492,7 +1492,7 @@ function PL:LCMessageHandler(prefix, message, distribution, sender)
 					end
 				end
 				for _,submission in pairs(item.submissions) do
-					print(submission.name)
+					--print(submission.name)
 					for voterGUID,currentlyOnCouncil in pairs(submission.voters) do
 						if item.council[voterGUID] then
 							submission.voters[voterGUID] = true
