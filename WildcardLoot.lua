@@ -886,20 +886,24 @@ end
 	if selectedLCItem then
 		local item = selectedLCItem
 		if (item.tradeable + 7200) - time() > 0 and IsInRaid() then
-			LCRaiderInputGroupRef:GetUserData("mainspecButton"):SetDisabled(false)
-			LCRaiderInputGroupRef:GetUserData("minorupButton"):SetDisabled(false)
-			LCRaiderInputGroupRef:GetUserData("offspecButton"):SetDisabled(false)
-			LCRaiderInputGroupRef:GetUserData("greedButton"):SetDisabled(false)
-			LCRaiderInputGroupRef:GetUserData("passButton"):SetDisabled(false)
-			LCRaiderInputGroupRef:GetUserData("noteButton"):SetDisabled(false)
+			if LCRaiderInputGroupRef then
+				LCRaiderInputGroupRef:GetUserData("mainspecButton"):SetDisabled(false)
+				LCRaiderInputGroupRef:GetUserData("minorupButton"):SetDisabled(false)
+				LCRaiderInputGroupRef:GetUserData("offspecButton"):SetDisabled(false)
+				LCRaiderInputGroupRef:GetUserData("greedButton"):SetDisabled(false)
+				LCRaiderInputGroupRef:GetUserData("passButton"):SetDisabled(false)
+				LCRaiderInputGroupRef:GetUserData("noteButton"):SetDisabled(false)
+			end
 		else
-			LCRaiderInputGroupRef:GetUserData("mainspecButton"):SetDisabled(true)
-			LCRaiderInputGroupRef:GetUserData("minorupButton"):SetDisabled(true)
-			LCRaiderInputGroupRef:GetUserData("offspecButton"):SetDisabled(true)
-			LCRaiderInputGroupRef:GetUserData("greedButton"):SetDisabled(true)
-			LCRaiderInputGroupRef:GetUserData("passButton"):SetDisabled(true)
-			LCRaiderInputGroupRef:GetUserData("noteBox"):SetText()
-			LCRaiderInputGroupRef:GetUserData("noteButton"):SetDisabled(true)
+			if LCRaiderInputGroupRef then
+				LCRaiderInputGroupRef:GetUserData("mainspecButton"):SetDisabled(true)
+				LCRaiderInputGroupRef:GetUserData("minorupButton"):SetDisabled(true)
+				LCRaiderInputGroupRef:GetUserData("offspecButton"):SetDisabled(true)
+				LCRaiderInputGroupRef:GetUserData("greedButton"):SetDisabled(true)
+				LCRaiderInputGroupRef:GetUserData("passButton"):SetDisabled(true)
+				LCRaiderInputGroupRef:GetUserData("noteBox"):SetText()
+				LCRaiderInputGroupRef:GetUserData("noteButton"):SetDisabled(true)
+			end
 			
 			LCScrollGroupRef:ReleaseChildren()
 			LCRowGroupByGUID, LCRowGroup = {}, {}
@@ -1016,15 +1020,17 @@ end
 			selectedEncounterFrame:Hide()
 		end
 	else
-		LCRaiderInputGroupRef:GetUserData("mainspecButton"):SetDisabled(true)
-		LCRaiderInputGroupRef:GetUserData("minorupButton"):SetDisabled(true)
-		LCRaiderInputGroupRef:GetUserData("offspecButton"):SetDisabled(true)
-		LCRaiderInputGroupRef:GetUserData("greedButton"):SetDisabled(true)
-		LCRaiderInputGroupRef:GetUserData("passButton"):SetDisabled(true)
-		LCRaiderInputGroupRef:GetUserData("noteBox"):SetText()
-		LCRaiderInputGroupRef:GetUserData("noteButton"):SetDisabled(true)
-		
-		LCRaiderInputGroupRef:GetUserData("hasItemLabel"):SetText(" ")
+		if LCRaiderInputGroupRef then
+			LCRaiderInputGroupRef:GetUserData("mainspecButton"):SetDisabled(true)
+			LCRaiderInputGroupRef:GetUserData("minorupButton"):SetDisabled(true)
+			LCRaiderInputGroupRef:GetUserData("offspecButton"):SetDisabled(true)
+			LCRaiderInputGroupRef:GetUserData("greedButton"):SetDisabled(true)
+			LCRaiderInputGroupRef:GetUserData("passButton"):SetDisabled(true)
+			LCRaiderInputGroupRef:GetUserData("noteBox"):SetText()
+			LCRaiderInputGroupRef:GetUserData("noteButton"):SetDisabled(true)
+			
+			LCRaiderInputGroupRef:GetUserData("hasItemLabel"):SetText(" ")
+		end
 		
 		LCScrollGroupRef:ReleaseChildren()
 		LCRowGroupByGUID, LCRowGroup = {}, {}
@@ -1992,6 +1998,8 @@ function PL:OnEnable()
 	
 	--comms
 	PL:RegisterComm("WCLOOTCOUNCIL", "LCMessageHandler")
+	
+	GuildRoster()
 end
 
 function PL:OnDisable()
