@@ -104,6 +104,16 @@ local TrackedEncounters = {
 	[2145] = {icon=2032228, instance="Uldir"},--zul
 	[2135] = {icon=2032225, instance="Uldir"},--mythrax
 	[2122] = {icon=2032223, instance="Uldir"},--g'huun
+	--Battle for Dazar'Alor
+	[2265] = {icon=571553,  instance="Dazar'Alor"},--champion of the light
+	[2263] = {icon=13293,   instance="Dazar'Alor"},--grong
+	[2266] = {icon=2484336, instance="Dazar'Alor"},--jadefire masters
+	[2271] = {icon=2484341, instance="Dazar'Alor"},--opulence
+	[2268] = {icon=2484335, instance="Dazar'Alor"},--conclave
+	[2272] = {icon=2484340, instance="Dazar'Alor"},--rastakhan
+	[2276] = {icon=2484337, instance="Dazar'Alor"},--mekkatorque
+	[2280] = {icon=2484329, instance="Dazar'Alor"},--blockade
+	[2281] = {icon=2484334, instance="Dazar'Alor"},--jaina
 }
 
 local lootSources = {
@@ -128,11 +138,24 @@ local lootSources = {
     [138967]=2145, --zul
     [134546]=2135, --mythrax
     [132998]=2122, --g'huun
+	--Battle for Dazar'Alor
+	[144680]=2265, --champion of the light
+	[144683]=2265, --champion of the light
+    [148117]=2263, --grong
+    [148238]=2266, --jadefire masters
+	[146099]=2266, --jadefire masters
+    [147564]=2271, --opulence
+    [144747]=2268, --conclave
+    [145616]=2272, --rastakhan
+    [144838]=2276, --mekkatorque
+    [146256]=2280, --blockade
+	[149684]=2281, --jaina
 }
 
 local lootInstances = {
 	"Antorus",
-	"Uldir"
+	"Uldir",
+	"Dazar'Alor"
 }
 
 --LUA API
@@ -1966,7 +1989,9 @@ function PL:OnInitialize()
 	WCTSaved.Options.DifficultyShow = WCTSaved.Options.DifficultyShow or false
 	WCTSaved.Options.EncounterLootPopup = WCTSaved.Options.EncounterLootPopup or false
 	WCTSaved.Options.FastLoot = WCTSaved.Options.FastLoot or false
-	WCTSaved.Options.AnnounceAwards = WCTSaved.Options.AnnounceAwards or true
+	if WCTSaved.Options.AnnounceAwards == nil then
+		WCTSaved.Options.AnnounceAwards = true
+	end
 	WCTSaved.Options.AutoStartLC = WCTSaved.Options.AutoStartLC or false
 	WCTSaved.Options.TrackedInstances = WCTSaved.Options.TrackedInstances or {}
 	WCTSaved.Options.LootCouncilGuildRank = WCTSaved.Options.LootCouncilGuildRank or 1
@@ -2016,6 +2041,7 @@ local itemLinks, itemEncounters, pendingSwaps = {}, {}, {}
 local itemBlacklist = {
     --[0] = true, 
 	[162461] = true,
+	[165703] = true,
 }
 
 local isQuestItem = function(i)

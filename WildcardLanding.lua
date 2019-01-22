@@ -8,25 +8,6 @@ local SEP = "^"
 --LUA API
 local tinsert, tremove = table.insert, table.remove
 
-local thanks = {
-	"Lumilol",
-	"Nnogga",
-	"Mortytide",
-	"Newmie",
-	"Opi",
-	"& Others"
-}
-
-local streamers = {
-	"lumi_tv",
-	"TMSean",
-	"Driney_",
-	"ikkuza",
-	"Utility",
-	"Eyeseetv",
-	"furi321"
-}
-
 local function PopulateTab(container)
 	container:SetLayout("Flow")
 	
@@ -38,7 +19,7 @@ local function PopulateTab(container)
 	WildcardIcon:SetFullWidth(true)
 	WildcardIcon:SetImageSize(128,128)
 	WildcardIcon:SetHeight(128)
-	WildcardIcon:SetImage("Interface\\AddOns\\WildcardTools\\assets\\WC_Logo_Skull")
+	WildcardIcon:SetImage("Interface\\AddOns\\WildcardTools\\assets\\Wildcard_Icon")
 	container:AddChild(WildcardIcon)
 	
 	local WildcardNameLabel = AceGUI:Create("InteractiveLabel")
@@ -62,44 +43,37 @@ local function PopulateTab(container)
 	WildcardTwitterLabel:SetText("@Wildcard_GG")
 	container:AddChild(WildcardTwitterLabel)
 	
-	local LeftColumnLabel = AceGUI:Create("InteractiveLabel")
-	LeftColumnLabel:SetRelativeWidth(0.5)
-	LeftColumnLabel:SetJustifyH("CENTER")
-	LeftColumnLabel:SetFont((LeftColumnLabel.label:GetFont()),14)
-	LeftColumnLabel:SetText("Special Thanks To")
-	container:AddChild(LeftColumnLabel)
-	
-	local RightColumnLabel = AceGUI:Create("InteractiveLabel")
-	RightColumnLabel:SetRelativeWidth(0.5)
-	RightColumnLabel:SetJustifyH("CENTER")
-	RightColumnLabel:SetFont((RightColumnLabel.label:GetFont()),14)
-	RightColumnLabel:SetText("Wildcard Streamers")
-	container:AddChild(RightColumnLabel)
-	
-	for i=1,max(#thanks,#streamers) do
-		local label = AceGUI:Create("InteractiveLabel")
-		label:SetRelativeWidth(0.5)
-		label:SetJustifyH("CENTER")
-		label:SetText(thanks[i])
-		container:AddChild(label)
-		local label = AceGUI:Create("InteractiveLabel")
-		label:SetRelativeWidth(0.5)
-		label:SetJustifyH("CENTER")
-		label:SetText(streamers[i])
-		container:AddChild(label)
-	end
-	
 	local space = AceGUI:Create("InteractiveLabel")
 	space:SetFullWidth(true)
 	space:SetJustifyH("CENTER")
 	space:SetText(" ")
 	container:AddChild(space)
 	
+	local StreamersLabel = AceGUI:Create("InteractiveLabel")
+	StreamersLabel:SetFullWidth(true)
+	StreamersLabel:SetJustifyH("CENTER")
+	StreamersLabel:SetFont((StreamersLabel.label:GetFont()),14)
+	StreamersLabel:SetText("Wildcard Streamers")
+	container:AddChild(StreamersLabel)
+	
+	local StreamersLink = AceGUI:Create("InteractiveLabel")
+	StreamersLink:SetFullWidth(true)
+	StreamersLink:SetJustifyH("CENTER")
+	StreamersLink:SetFont((StreamersLink.label:GetFont()),12)
+	StreamersLink:SetText("twitch.tv/team/wildcardgaming")
+	container:AddChild(StreamersLink)
+	
+	local space2 = AceGUI:Create("InteractiveLabel")
+	space2:SetFullWidth(true)
+	space2:SetJustifyH("CENTER")
+	space2:SetText(" ")
+	container:AddChild(space2)
+	
 	local ContactLabel = AceGUI:Create("InteractiveLabel")
 	ContactLabel:SetFullWidth(true)
 	ContactLabel:SetJustifyH("CENTER")
 	ContactLabel:SetFont((ContactLabel.label:GetFont()),11)
-	ContactLabel:SetText("Contact me @Telerithis, or Discord Tel#6594, or BNet Telerithis#1954.")
+	ContactLabel:SetText("Contact me @Telerithis, or Discord Tel#6594, or BNet Tel#11724.")
 	container:AddChild(ContactLabel)
 end
 
