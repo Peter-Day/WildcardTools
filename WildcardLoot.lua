@@ -141,15 +141,15 @@ local lootSources = {
 	--Battle for Dazar'Alor
 	[144680]=2265, --champion of the light
 	[144683]=2265, --champion of the light
-    [148117]=2263, --grong
-    [148238]=2266, --jadefire masters
-	[146099]=2266, --jadefire masters
-    [147564]=2271, --opulence
+    [316707]=2263, --grong
+    [144693]=2266, --jadefire masters
+	[146099]=2266, --jadefire masters (alliance?)
+    [145261]=2271, --opulence
     [144747]=2268, --conclave
-    [145616]=2272, --rastakhan
-    [144838]=2276, --mekkatorque
-    [146256]=2280, --blockade
-	[149684]=2281, --jaina
+    [316871]=2272, --rastakhan
+    [144796]=2276, --mekkatorque
+    [311564]=2280, --blockade
+	[311563]=2281, --jaina
 }
 
 local lootInstances = {
