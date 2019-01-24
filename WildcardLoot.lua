@@ -106,7 +106,7 @@ local TrackedEncounters = {
 	[2122] = {icon=2032223, instance="Uldir"},--g'huun
 	--Battle for Dazar'Alor
 	[2265] = {icon=571553,  instance="Dazar'Alor"},--champion of the light
-	[2263] = {icon=13293,   instance="Dazar'Alor"},--grong
+	[2263] = {icon=2484332,   instance="Dazar'Alor"},--grong
 	[2266] = {icon=2484336, instance="Dazar'Alor"},--jadefire masters
 	[2271] = {icon=2484341, instance="Dazar'Alor"},--opulence
 	[2268] = {icon=2484335, instance="Dazar'Alor"},--conclave
